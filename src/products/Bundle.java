@@ -5,32 +5,24 @@ import java.util.List;
 
 public class Bundle extends Product {
 
-	private List<Product> bundle;
+	private List<Product> products;
 
 	public Bundle() {
-		bundle = new ArrayList<Product>();
+		products = new ArrayList<Product>();
 	}
 
 	public void add(Product product) {
-		bundle.add(product);
+		products.add(product);
+		price += product.getPrice();
 		
 	}
 
-	public List<Product> getBundle() {
-		return bundle;
-	}
-	
-	@Override
-	public double getPrice() {
-		price = 0;
-		for (Product product : bundle) {
-			price += product.getPrice();
-		}
-		return price;
+	public List<Product> getProducts() {
+		return products;
 	}
 	
 	public int getSize() {
-		return bundle.size();
+		return products.size();
 	}
 
 }

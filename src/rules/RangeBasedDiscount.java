@@ -13,14 +13,14 @@ public abstract class RangeBasedDiscount {
 	
 	public RangeBasedDiscount(double low, double high, double discount) {
 
-		this.setLow(low);
-		this.setHigh(high);
+		this.low = low;
+		this.high = high;
 		this.discount = discount;
 
 	}
 
 	public abstract void discount(Product p);
-
+	
 	public double getLow() {
 		return low;
 	}
