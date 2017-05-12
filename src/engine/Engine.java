@@ -23,11 +23,11 @@ public class Engine {
 	public static void main(String[] args) throws SQLException {
 
 		Engine e = new Engine();
-		Bundle tvNetS = e.getBundle("mobile_net_m");
-		Engine.printBundle(tvNetS);
-		e.discount(tvNetS);
-		Engine.printBundle(tvNetS);
-		System.out.println("tv_net_s price after total discount " + tvNetS.getPrice());
+		Bundle bundle = e.getBundle("mobile_net_l");
+		Engine.printBundle(bundle);
+		e.discount(bundle);
+		Engine.printBundle(bundle);
+		System.out.printf("%s price after total discount %.2f%n", bundle.getName(), bundle.getPrice());
 	}
 
 	public void discount(Bundle b) {
@@ -70,10 +70,11 @@ public class Engine {
 	}
 
 	private static void printBundle(Bundle bundle) {
-		System.out.println(bundle.getName() + " size " + bundle.getSize());
+		System.out.println(bundle.getName());
 		for (Product p : bundle.getProducts()) {
 			System.out.println(p);
 		}
+		System.out.println("-------------");
 	}
 
 	public Bundle getBundle(String name) throws SQLException {
@@ -125,7 +126,7 @@ public class Engine {
 		}
 	}
 
-	public List<RangeBasedDiscount> getDiscounts(String type) throws SQLException {
+	private List<RangeBasedDiscount> getDiscounts(String type) throws SQLException {
 
 		String query = "SELECT disc_range, discount " + "FROM discounts " + "WHERE type = ?"
 				+ "ORDER BY disc_range DESC";
