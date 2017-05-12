@@ -1,40 +1,28 @@
 package rules;
 
-import products.Product;
-
-public abstract class RangeBasedDiscount {
-
-	private double low;
-	private double high;
+public class RangeBasedDiscount {
+	
+	private String type;
+	private double range;
 	private double discount;
 
 	public RangeBasedDiscount() {
 	}
 	
-	public RangeBasedDiscount(double low, double high, double discount) {
-
-		this.low = low;
-		this.high = high;
+	public RangeBasedDiscount(String type, double range, double discount) {
+		
+		this.type = type;
+		this.range = range;
 		this.discount = discount;
 
 	}
 
-	public abstract void discount(Product p);
+	public double getRange() {
+		return range;
+	}
 	
-	public double getLow() {
-		return low;
-	}
-
-	public void setLow(double low) {
-		this.low = low;
-	}
-
-	public double getHigh() {
-		return high;
-	}
-
-	public void setHigh(double high) {
-		this.high = high;
+	public void setRange(double range) {
+		this.range = range;
 	}
 	
 	public double getDiscount() {
@@ -43,6 +31,14 @@ public abstract class RangeBasedDiscount {
 	
 	public void setDiscount(double discount) {
 		this.discount = discount;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }
