@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import connection.DatabaseConnection;
 import products.Bundle;
 import products.Product;
 import rules.BundleFixDisc;
 import rules.BundleItemsDisc;
+import rules.Discount;
 import rules.Priority;
 import rules.ProductFixDisc;
 import rules.ProductPercDisc;
@@ -30,14 +30,15 @@ public class Engine {
 		System.out.printf("%s price after total discount %.2f%n", bundle.getName(), bundle.getPrice());
 	}
 
-	public void discount(Bundle b) {
+	public void discount(Bundle bundle) {
 
-		Priority priority = new Priority();
 		try {
-			Map<Integer, String> order = priority.getPriorityOrder();
-			for (int i = 1; i <= order.size(); i++) {
-
-				doDiscount(b, order.get(i));
+			
+			Priority priority = new Priority();
+			List<Discount> order = priority.getPriorityOrder();
+			
+			for (Discount type : order) {
+				doDiscount(bundle, type);
 			}
 
 		} catch (SQLException e) {
@@ -46,21 +47,21 @@ public class Engine {
 
 	}
 
-	private void doDiscount(Bundle bundle, String type) throws SQLException {
+	private void doDiscount(Bundle bundle, Discount type) throws SQLException {
 
-		List<RangeBasedDiscount> discounts = getDiscounts(type);
+		List<RangeBasedDiscount> discounts = getDiscounts(type.getType());
 
 		switch (type) {
-		case "product_fix":
+		case PRODUCT_FIX:
 			new ProductFixDisc(bundle, discounts).discount();
 			break;
-		case "product_perc":
+		case PRODUCT_PERC:
 			new ProductPercDisc(bundle, discounts).discount();
 			break;
-		case "bundle_fix":
+		case BUNDLE_FIX:
 			new BundleFixDisc(bundle, discounts).discount();
 			break;
-		case "bundle_items":
+		case BUNDLE_ITEMS:
 			new BundleItemsDisc(bundle, discounts).discount();
 			break;
 		default:
