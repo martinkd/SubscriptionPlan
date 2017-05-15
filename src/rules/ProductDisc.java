@@ -20,6 +20,8 @@ public abstract class ProductDisc {
 		for (Product product : bundle.getProducts()) {
 			double discAmount = discAmount(product);
 			product.setPrice(product.getPrice() - discAmount);
+			bundle.setDiscAmount(bundle.getDiscAmount() + discAmount);
+			
 			System.out.printf("%s %s discount - %.2f%n", product.getName(), discounts.get(0).getType(), discAmount);
 		}
 		System.out.println("-------------");

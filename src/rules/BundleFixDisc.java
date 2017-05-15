@@ -13,7 +13,7 @@ public class BundleFixDisc extends BundleDisc{
 	@Override
 	protected double discAmount(Bundle bundle) {
 		for (RangeBasedDiscount rangeBasedDiscount : discounts) {
-			if (getBundlePrice() >= rangeBasedDiscount.getRange()) {
+			if (bundle.getPrice() >= rangeBasedDiscount.getRange()) {
 				return rangeBasedDiscount.getDiscount();
 			}
 		}

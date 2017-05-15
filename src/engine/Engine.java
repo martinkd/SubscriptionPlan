@@ -23,11 +23,21 @@ public class Engine {
 	public static void main(String[] args) throws SQLException {
 
 		Engine e = new Engine();
-		Bundle bundle = e.getBundle("mobile_net_xl");
+		Bundle bundle = e.getBundle("tv_net_xl");
+		
 		Engine.printBundle(bundle);
+		
+		double before = bundle.getPrice();
+		System.out.printf("%s price before discount %.2f%n",bundle.getName(), before);
+		System.out.println("-------------");
+		
 		e.discount(bundle);
 		Engine.printBundle(bundle);
-		System.out.printf("%s price after total discount %.2f%n", bundle.getName(), bundle.getPrice());
+		System.out.printf("%s price after product discounts %.2f%n",bundle.getName(), bundle.getPrice());
+		System.out.println("-------------");
+		
+		double after = before - bundle.getDiscAmount();
+		System.out.printf("%s price after total discount %.2f%n", bundle.getName(), after);
 	}
 
 	public void discount(Bundle bundle) {

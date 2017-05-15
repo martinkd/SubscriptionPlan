@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bundle {
-
+	
+	private double discAmount;
 	private double price;
 	private String name;
 	private List<Product> products;
@@ -39,11 +40,20 @@ public class Bundle {
 	}
 
 	public double getPrice() {
+		double sum = 0;
+		for (Product product : products) {
+			sum += product.getPrice();
+		}
+		price = sum;
 		return price;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public double getDiscAmount() {
+		return discAmount;
+	}
+
+	public void setDiscAmount(double discAmount) {
+		this.discAmount = discAmount;
 	}
 
 }
