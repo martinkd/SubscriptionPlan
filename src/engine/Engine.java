@@ -12,7 +12,7 @@ import products.Bundle;
 import products.Product;
 import rules.BundleFixDisc;
 import rules.BundleItemsDisc;
-import rules.Discount;
+import rules.DiscountType;
 import rules.Priority;
 import rules.ProductFixDisc;
 import rules.ProductPercDisc;
@@ -35,9 +35,9 @@ public class Engine {
 		try {
 			
 			Priority priority = new Priority();
-			List<Discount> order = priority.getPriorityOrder();
+			List<DiscountType> order = priority.getPriorityOrder();
 			
-			for (Discount type : order) {
+			for (DiscountType type : order) {
 				doDiscount(bundle, type);
 			}
 
@@ -47,7 +47,7 @@ public class Engine {
 
 	}
 
-	private void doDiscount(Bundle bundle, Discount type) throws SQLException {
+	private void doDiscount(Bundle bundle, DiscountType type) throws SQLException {
 
 		List<RangeBasedDiscount> discounts = getDiscounts(type.getType());
 

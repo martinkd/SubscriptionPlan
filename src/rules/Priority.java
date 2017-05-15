@@ -10,17 +10,17 @@ import connection.DatabaseConnection;
 
 public class Priority {
 
-	private List<Discount> priorityOrder;
+	private List<DiscountType> priorityOrder;
 
-	public List<Discount> getPriorityOrder() throws SQLException {
+	public List<DiscountType> getPriorityOrder() throws SQLException {
 
 		String query = "SELECT type FROM priority ORDER BY rank";
 		Statement stat = DatabaseConnection.getConnection().createStatement();
 		ResultSet rs = stat.executeQuery(query);
-		priorityOrder = new ArrayList<Discount>();
+		priorityOrder = new ArrayList<DiscountType>();
 		while (rs.next()) {
 			String type = rs.getString("type").toUpperCase();
-			priorityOrder.add(Discount.valueOf(type));
+			priorityOrder.add(DiscountType.valueOf(type));
 		}
 
 		return priorityOrder;
