@@ -1,6 +1,6 @@
 package rules;
 
-public enum Discount {
+public enum DiscountType {
 
 	PRODUCT_FIX("product_fix"),
 	PRODUCT_PERC("product_perc"),
@@ -9,7 +9,7 @@ public enum Discount {
 
 	private String type;
 
-	private Discount(String type) {
+	private DiscountType(String type) {
 		this.type = type;
 	}
 
