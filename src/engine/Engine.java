@@ -104,7 +104,8 @@ public class Engine {
 		List<Bundle> bundles = new ArrayList<Bundle>();
 		while (rs.next()) {
 			String name = rs.getString("name");
-			Bundle bundle = new Bundle(name);
+			Bundle bundle = new Bundle();
+			bundle.setName(name);
 			bundles.add(bundle);
 		}
 

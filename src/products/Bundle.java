@@ -14,11 +14,6 @@ public class Bundle {
 		products = new ArrayList<Product>();
 	}
 	
-	public Bundle(String name) {
-		this.name = name;
-		products = new ArrayList<Product>();
-	}
-
 	public void add(Product product) {
 		products.add(product);
 	}
