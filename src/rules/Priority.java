@@ -1,8 +1,8 @@
 package rules;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class Priority {
 	public List<DiscountType> getPriorityOrder() throws SQLException {
 
 		String query = "SELECT type FROM priority ORDER BY rank";
-		Statement stat = DatabaseConnection.getConnection().createStatement();
+		PreparedStatement stat = DatabaseConnection.getConnection().prepareCall(query);
 		ResultSet rs = stat.executeQuery(query);
 		priorityOrder = new ArrayList<DiscountType>();
 		while (rs.next()) {
