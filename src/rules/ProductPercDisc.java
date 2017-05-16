@@ -18,7 +18,7 @@ public class ProductPercDisc extends ProductDisc{
 				return rangeBasedDiscount.getDiscount() * p.getPrice() / 100.0;
 			}
 		}
-		return 0;
+		return NO_DISCOUNT;
 	}
 
 }

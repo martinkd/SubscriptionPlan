@@ -9,6 +9,7 @@ public abstract class ProductDisc {
 	
 	protected Bundle bundle;
 	protected List<RangeBasedDiscount> discounts;
+	protected static final double NO_DISCOUNT = 0;
 	
 	public ProductDisc(Bundle bundle, List<RangeBasedDiscount> discounts) {
 		this.bundle = bundle;

@@ -18,7 +18,7 @@ public class ProductFixDisc extends ProductDisc{
 				return rangeBasedDiscount.getDiscount();
 			}
 		}
-		return 0;
+		return NO_DISCOUNT;
 	}
 
 }

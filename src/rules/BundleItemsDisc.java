@@ -17,6 +17,6 @@ public class BundleItemsDisc extends BundleDisc{
 				return rangeBasedDiscount.getDiscount();
 			}
 		}
-		return 0;
+		return NO_DISCOUNT;
 	}
 }
