@@ -24,10 +24,6 @@ public abstract class BundleDisc extends Discount{
 		System.out.println("-------------");
 
 	}
-	
-//	public double getPriority() {
-//		return priority;
-//	}
 
 	protected abstract double discAmount(Bundle b);
 	

@@ -22,7 +22,7 @@ public class Engine {
 	public static void main(String[] args) throws SQLException {
 
 		Engine e = new Engine();
-		Bundle bundle = e.getBundle("TVx2_net_m");
+		Bundle bundle = e.getBundle("tv_net_mob_l");
 
 		Engine.print(bundle);
 
