@@ -4,18 +4,18 @@ import java.util.List;
 
 import products.Bundle;
 
-public abstract class BundleDisc {
+public abstract class BundleDisc extends Discount{
 
 	protected Bundle bundle;
+
 	protected List<RangeBasedDiscount> discounts;
 	protected static final double NO_DISCOUNT = 0;
 	
-	public BundleDisc(Bundle bundle, List<RangeBasedDiscount> discounts) {
+	public BundleDisc(Bundle bundle) {
 		this.bundle = bundle;
-		this.discounts = discounts;
 	}
 
-	public void discount() {
+	public void calcDiscount() {
 
 		double discAmount = discAmount(bundle);
 		bundle.setDiscAmount(bundle.getDiscAmount() + discAmount);
@@ -24,6 +24,10 @@ public abstract class BundleDisc {
 		System.out.println("-------------");
 
 	}
+	
+//	public double getPriority() {
+//		return priority;
+//	}
 
 	protected abstract double discAmount(Bundle b);
 	

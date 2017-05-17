@@ -5,18 +5,17 @@ import java.util.List;
 import products.Bundle;
 import products.Product;
 
-public abstract class ProductDisc {
+public abstract class ProductDisc extends Discount{
 	
 	protected Bundle bundle;
 	protected List<RangeBasedDiscount> discounts;
 	protected static final double NO_DISCOUNT = 0;
 	
-	public ProductDisc(Bundle bundle, List<RangeBasedDiscount> discounts) {
+	public ProductDisc(Bundle bundle) {
 		this.bundle = bundle;
-		this.discounts = discounts;
 	}
 	
-	public void discount() {
+	public void calcDiscount() {
 
 		for (Product product : bundle.getProducts()) {
 			double discAmount = discAmount(product);
