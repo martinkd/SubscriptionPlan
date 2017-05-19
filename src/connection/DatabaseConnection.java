@@ -15,7 +15,7 @@ public class DatabaseConnection {
 		if (conn == null) {
 			try {
 				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/subscription_plan?"
-						+ "user=martin&password=scooby1961&" + "useUnicode=true&characterEncoding=UTF-8&useSSL=false");
+						+ "user=martin&password=*******&" + "useUnicode=true&characterEncoding=UTF-8&useSSL=false");
 			} catch (SQLException ex) {
 				ex.printStackTrace();
 			}
